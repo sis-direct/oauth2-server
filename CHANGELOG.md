@@ -1,5 +1,179 @@
 # Changelog
 
+## 5.1.1 (released 2016-07-26)
+
+* Improved test suite (Issue #614)
+* Updated docblocks (Issue #616)
+* Replace `array_shift` with `foreach` loop (Issue #621)
+* Allow easy addition of custom fields to Bearer token response (Issue #624)
+* Key file auto-generation from string (Issue #625)
+
+## 5.1.0 (released 2016-06-28)
+
+* Implemented RFC7636 (Issue #574)
+* Unify middleware exception responses (Issue #578)
+* Updated examples (Issue #589)
+* Ensure state is in access denied redirect (Issue #597)
+* Remove redundant `isExpired()` method from entity interfaces and traits (Issue #600)
+* Added a check for unique access token constraint violation (Issue #601)
+* Look at Authorization header directly for HTTP Basic auth checks (Issue #604)
+* Added catch Runtime exception when parsing JWT string (Issue #605)
+* Allow `paragonie/random_compat` 2.x (Issue #606)
+* Added `indigophp/hash-compat` to Composer suggestions and `require-dev` for PHP 5.5 support
+
+## 5.0.3 (released 2016-05-04)
+
+* Fix hints in PasswordGrant (Issue #560)
+* Add meaning of `Resource owner` to terminology.md (Issue #561)
+* Use constant for event name instead of explicit string (Issue #563)
+* Remove unused request property (Issue #564)
+* Correct wrong phpdoc (Issue #569)
+* Fixed typo in exception string (Issue #570)
+
+## 5.0.2 (released 2016-04-18)
+
+* `state` parameter is now correctly returned after implicit grant authorization
+* Small code and docblock improvements
+
+## 5.0.1 (released 2016-04-18)
+
+* Fixes an issue (#550) whereby it was unclear whether or not to validate a client's secret during a request.
+
+## 5.0.0 (released 2016-04-17)
+
+Version 5 is a complete code rewrite.
+
+* JWT support
+* PSR-7 support
+* Improved exception errors
+* Replace all occurrences of the term "Storage" with "Repository"
+* Simplify repositories
+* Entities conform to interfaces and use traits
+* Auth code grant updated
+    * Allow support for public clients
+    * Add support for #439
+* Client credentials grant updated
+* Password grant updated
+    * Allow support for public clients
+* Refresh token grant updated
+* Implement Implicit grant
+* Bearer token output type
+* Remove MAC token output type
+* Authorization server rewrite
+* Resource server class moved to PSR-7 middleware
+* Tests
+* Much much better documentation
+
+Changes since RC2:
+
+* Renamed Server class to AuthorizationServer
+* Added ResourceServer class
+* Run unit tests again PHP 5.5.9 as it's the minimum supported version
+* Enable PHPUnit 5.0 support
+* Improved examples and documentation
+* Make it clearer that the implicit grant doesn't support refresh tokens
+* Improved refresh token validation errors
+* Fixed refresh token expiry date
+
+## 5.0.0-RC2 (released 2016-04-10)
+
+Changes since RC1:
+
+* Allow multiple client redirect URIs (Issue #511)
+* Remove unused mac token interface (Issue #503)
+* Handle RSA key passphrase (Issue #502)
+* Remove access token repository from response types (Issue #501)
+* Remove unnecessary methods from entity interfaces (Issue #490)
+* Ensure incoming JWT hasn't expired (Issue #509)
+* Fix client identifier passed where user identifier is expected (Issue #498)
+* Removed built-in entities; added traits to for quick re-use (Issue #504)
+* Redirect uri is required only if the "redirect_uri" parameter was included in the authorization request (Issue #514)
+* Removed templating for auth code and implicit grants (Issue #499)
+
+## 5.0.0-RC1 (release 2016-03-24)
+
+Version 5 is a complete code rewrite.
+
+* JWT support
+* PSR-7 support
+* Improved exception errors
+* Replace all occurrences of the term "Storage" with "Repository"
+* Simplify repositories
+* Entities conform to interfaces and use traits
+* Auth code grant updated
+    * Allow support for public clients
+    * Add support for #439
+* Client credentials grant updated
+* Password grant updated
+    * Allow support for public clients
+* Refresh token grant updated
+* Implement Implicit grant
+* Bearer token output type
+* Remove MAC token output type
+* Authorization server rewrite
+* Resource server class moved to PSR-7 middleware
+* Tests
+* Much much better documentation
+
+## 4.1.5 (released 2016-01-04)
+
+* Enable Symfony 3.0 support (#412)
+
+## 4.1.4 (released 2015-11-13)
+
+* Fix for determining access token in header (Issue #328)
+* Refresh tokens are now returned for MAC responses (Issue #356)
+* Added integration list to readme (Issue #341)
+* Expose parameter passed to exceptions (Issue #345)
+* Removed duplicate routing setup code (Issue #346)
+* Docs fix (Issues #347, #360, #380)
+* Examples fix (Issues #348, #358)
+* Fix typo in docblock (Issue #352)
+* Improved timeouts for MAC tokens (Issue #364)
+* `hash_hmac()` should output raw binary data, not hexits (Issue #370)
+* Improved regex for matching all Base64 characters (Issue #371)
+* Fix incorrect signature parameter (Issue #372)
+* AuthCodeGrant and RefreshTokenGrant don't require client_secret (Issue #377)
+* Added priority argument to event listener (Issue #388)
+
+## 4.1.3 (released 2015-03-22)
+
+* Docblock, namespace and inconsistency fixes (Issue #303)
+* Docblock type fix (Issue #310)
+* Example bug fix (Issue #300)
+* Updated league/event to ~2.1 (Issue #311)
+* Fixed missing session scope (Issue #319)
+* Updated interface docs (Issue #323)
+* `.travis.yml` updates
+
+## 4.1.2 (released 2015-01-01)
+
+* Remove side-effects in hash_equals() implementation (Issue #290)
+
+## 4.1.1 (released 2014-12-31)
+
+* Changed `symfony/http-foundation` dependency version to `~2.4` so package can be installed in Laravel `4.1.*`
+
+## 4.1.0 (released 2014-12-27)
+
+* Added MAC token support (Issue #158)
+* Fixed example init code (Issue #280)
+* Toggle refresh token rotation (Issue #286)
+* Docblock fixes
+
+## 4.0.5 (released 2014-12-15)
+
+* Prevent duplicate session in auth code grant (Issue #282)
+
+## 4.0.4 (released 2014-12-03)
+
+* Ensure refresh token hasn't expired (Issue #270)
+
+## 4.0.3 (released 2014-12-02)
+
+* Fix bad type hintings (Issue #267)
+* Do not forget to set the expire time (Issue #268)
+
 ## 4.0.2 (released 2014-11-21)
 
 * Improved interfaces (Issue #255)
@@ -100,7 +274,7 @@
 * Included a PDO driver which implements the storage interfaces so the library is more "get up and go"
 * Further normalised the database structure so all sessions no longer contain infomation related to authorization grant (which may or may not be enabled)
 * A session can have multiple associated access tokens
-* Induvidual grants can have custom expire times for access tokens
+* Individual grants can have custom expire times for access tokens
 * Authorization codes now have a TTL of 10 minutes by default (can be manually set)
 * Refresh tokens now have a TTL of one week by default (can be manually set)
 * The client credentials grant will no longer gives out refresh tokens as per the specification
